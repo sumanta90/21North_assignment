@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="row">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-body">
+                <form method="post" action="/process/queue/add">
+                    <div class="form-group">
+                        <label>Ambassador ID</label>
+                        <input type="text" class="form-control" id="ambid" name="ambid" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Queue ID</label>
+                        <input type="text" class="form-control" id="queue" name="queue" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount</label>
+                        <input type="text" class="form-control" id="amount" name="amount" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Task Count</label>
+                        <input type="text" class="form-control" id="tcount" name="tcount" required>
+                    </div>
+                    <div class="form-group">
+                        <label>State Code</label>
+                        <input type="text" class="form-control" id="state" name="state" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Reason</label>
+                        <input type="text" class="form-control" id="reason" name="reason" required>
+                    </div><br>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-block btn-success" name="sub">
+                    </div>
+
+                </form>
+                <script>
+$("#commentForm").validate();
+</script>
+                {% with messages = get_flashed_messages() %}
+                     {% if messages %}
+                           {% for message in messages %}
+                                <p>{{ message }}</p>
+                           {% endfor %}
+                     {% endif %}
+                  {% endwith %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+
+<div class="row">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-body">
+                <form method="post" action="/process/update/{{ data[0] }}">
+                    <input type="hidden" name="{{ data[0] }}" name="idd">
+                    <div class="form-group">
+                        <label>Ambassador ID</label>
+                        <input type="text" class="form-control" name="ambid" value="{{ data[1] }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Queue ID</label>
+                        <input type="text" class="form-control" name="queue" value="{{ data[2] }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount</label>
+                        <input type="text" class="form-control" name="amount" value="{{ data[3] }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Task Count</label>
+                        <input type="text" class="form-control" name="tcount" value="{{ data[4] }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>State Code</label>
+                        <input type="text" class="form-control" name="state" value="{{ data[5] }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Reason</label>
+                        <input type="text" class="form-control" name="reason" value="{{ data[6] }}" required>
+                    </div><br>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-block btn-success" name="subb">
+                    </div>
+
+                </form>
+                {% with messages = get_flashed_messages() %}
+                     {% if messages %}
+                           {% for message in messages %}
+                                <p>{{ message }}</p>
+                           {% endfor %}
+                     {% endif %}
+                  {% endwith %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

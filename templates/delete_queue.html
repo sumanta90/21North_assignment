@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="row">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-body">
+                <form method="post" action="/process/delete">
+                    <div class="form-group">
+                        <label>Ambassador ID</label>
+                        <input type="text" class="form-control" name="ambid">
+                    </div>
+                    <div class="form-group">
+                        <label>Queue ID</label>
+                        <input type="text" class="form-control" name="queue">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-block btn-success" name="sub">
+                    </div>
+
+                </form>
+                {% with messages = get_flashed_messages() %}
+                     {% if messages %}
+                           {% for message in messages %}
+                                <p>{{ message }}</p>
+                           {% endfor %}
+                     {% endif %}
+                  {% endwith %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
